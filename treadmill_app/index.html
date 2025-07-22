@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tapis de course - Moniteur</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; background: #f7f7f7; }
+    h1 { color: #1a237e; }
+    .info { margin: 20px 0; }
+    label { font-weight: bold; }
+    #chart-container { width: 100%; max-width: 600px; margin: 30px auto; }
+  </style>
+</head>
+<body>
+  <h1>Moniteur de Tapis de Course</h1>
+  <div>
+    <label for="portSelect">Port série :</label>
+    <select id="portSelect"></select>
+    <button id="refreshPorts">Rafraîchir</button>
+    <button id="connectBtn">Connexion</button>
+    <button id="disconnectBtn" disabled>Déconnexion</button>
+  </div>
+  <div style="margin: 15px 0;">
+    <label for="intervalInput">Intervalle de rafraîchissement (ms) :</label>
+    <input type="range" id="intervalInput" min="100" max="5000" step="100" value="500" style="width:200px;">
+    <span id="intervalValue">500</span> ms
+    <button id="setIntervalBtn">Définir</button>
+    <span id="intervalAck" style="margin-left:10px;color:green;"></span>
+  </div>
+  <div id="mainContent" style="display:none;">
+    <div class="info">
+      <div>Distance totale : <span id="distance">0.00</span> m</div>
+      <div>Distance (dernière trame) : <span id="lastDistance">0.00</span> m</div>
+      <div>Vitesse instantanée : <span id="speed">0.00</span> km/h</div>
+    </div>
+    <div id="chart-container">
+      <canvas id="speedChart"></canvas>
+    </div>
+    <div style="margin-top:30px;">
+      <label for="serialConsole">Console série :</label><br>
+      <textarea id="serialConsole" rows="10" style="width:100%;max-width:800px;font-family:monospace;" readonly></textarea>
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html> 
