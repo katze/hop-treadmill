@@ -1,0 +1,45 @@
+{
+  "name": "treadmill",
+  "productName": "Treadmill",
+  "version": "1.0.0",
+  "description": "Application Electron pour tapis de course avec WebSocket",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "vite",
+    "dist": "electron-builder"
+  },
+  "keywords": [
+    "electron",
+    "treadmill",
+    "websocket"
+  ],
+  "author": "Hop Creative Services",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^36.7.3",
+    "electron-builder": "^26.0.12",
+    "vite": "^7.0.6"
+  },
+  "dependencies": {
+    "serialport": "^13.0.0"
+  },
+  "build": {
+    "appId": "com.hopcreative.treadmill",
+    "files": [
+      "public/**/*",
+      "src/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "buildResources",
+      "output": "dist"
+    },
+    "asar": false,
+    "win": {
+      "target": [
+        "portable"
+      ]
+    }
+  }
+}

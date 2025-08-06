@@ -1,0 +1,599 @@
+@font-face {
+  font-family: 'FranklinGothicDmCpIt-FNT';
+  src: url('../assets/ITCFranklinGothicStd-DmCpIt.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FranklinGothicDmCdIt-FNT';
+  src: url('../assets/ITCFranklinGothicStd-DmCdIt.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'DentonLight-FNT';
+  src: url('../assets/Denton-Light.otf') format('opentype');
+}
+
+* {
+  user-select: none;
+}
+
+.show {
+  opacity: 1 !important;
+}
+
+body {
+  background-image: url("../assets/still-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: clip;
+}
+
+.view {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: clip;
+
+  /*background-image: url("../assets/Plan de travail 1 copie 3@2x.png");*/
+  /*background-size: contain;*/
+
+  /*.blur {*/
+  /*  backdrop-filter: none !important;*/
+  /*}*/
+
+  /*.image-shape {*/
+  /*  display: none !important;*/
+  /*}*/
+
+
+  transition: opacity .3s ease-in-out;
+  opacity: 0;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+#accueil video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#welcome-msg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 26.4rem;
+  width: 168.2rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 1rem .5rem rgba(255, 255, 255, .2), 4rem 4rem 5rem rgba(0, 0, 0, .2);
+  backdrop-filter: blur(0);
+  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, .6), transparent);
+  border: 0 solid white;
+  border-top-width: .3rem;
+  border-left-width: .3rem;
+  box-sizing: border-box;
+
+  transition: opacity .3s ease-in-out, backdrop-filter .3s .3s ease-in-out;
+  opacity: 0;
+}
+
+.show #welcome-msg {
+  backdrop-filter: blur(3rem);
+  transition: backdrop-filter .3s ease-in-out, opacity .3s .3s ease-in-out;
+}
+
+#welcome-msg .message {
+  text-transform: uppercase;
+  color: white;
+  font-family: 'DentonLight-FNT', serif;
+  font-size: 13rem;
+  letter-spacing: 15rem;
+  text-align: center;
+  padding-left: 5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#welcome-msg .question-mark {
+  letter-spacing: 2rem;
+}
+
+.compteurs {
+  z-index: 1;
+  color: white;
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+.compteurs .image-shape {
+  height: 190rem;
+  position: absolute;
+  left: calc(50% + 5.1rem);
+  top: 19rem;
+  z-index: 2;
+  transform: translateX(-50%);
+}
+
+.blur {
+  background-color: rgba(0, 0, 0, .25);
+  backdrop-filter: blur(0) contrast(1);
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+}
+
+.show .blur {
+  opacity: 1;
+  backdrop-filter: blur(3rem) contrast(1.4);
+  transition: backdrop-filter .3s .3s ease-in-out;
+}
+
+.compteurs .blur.left {
+  right: calc(50% + 77.5rem);
+  top: 22.2rem;
+  height: 171.5rem;
+  width: 82rem;
+  border-radius: 4rem;
+}
+
+.compteurs .blur.middle {
+  left: 50%;
+  top: 43.4rem;
+  height: 128.8rem;
+  width: 155rem;
+  transform: translateX(-50%);
+}
+
+.compteurs .blur.right {
+  left: calc(50% + 77.3rem);
+  top: 22.2rem;
+  height: 171.5rem;
+  width: 82rem;
+  border-radius: 4rem;
+}
+
+.compteurs .blur.right:before,
+.compteurs .blur.right:after,
+.compteurs .blur.left:before,
+.compteurs .blur.left:after {
+  content: '';
+  position: absolute;
+  height: 4rem;
+  width: 4rem;
+  background-color: inherit;
+  backdrop-filter: blur(2rem);
+}
+
+.compteurs .blur.right:before {
+  top: 17.6rem;
+  right: 100%;
+  clip-path: path("M 15,0 V 15 H 0 A 15,15 0 0 0 15,0 Z");
+}
+
+.compteurs .blur.right:after {
+  bottom: 17.2rem;
+  right: 100%;
+  clip-path: path("M 15,15 V 0 H 0 a 15,15 0 0 1 15,15 z");
+}
+
+.compteurs .blur.left:before {
+  top: 17.6rem;
+  left: 100%;
+  clip-path: path("M 0,0 V 15 H 15 A 15,15 0 0 1 0,0 Z");
+}
+
+.compteurs .blur.left:after {
+  bottom: 17.2rem;
+  left: 100%;
+  clip-path: path("M 0,15 V 0 H 15 A 15,15 0 0 0 0,15 Z");
+}
+
+.compteurs .blur.right:before {
+  top: 17.3em;
+  right: calc(100% - .1rem);
+  clip-path: path("M 15,0 V 15 H 0 A 15,15 0 0 0 15,0 Z");
+}
+
+.compteurs .blur.right:after {
+  bottom: 17.2rem;
+  right: 100%;
+  clip-path: path("M 15,15 V 0 H 0 a 15,15 0 0 1 15,15 z");
+}
+
+.compteurs .blur.left:before {
+  top: 17.6rem;
+  left: 100%;
+  clip-path: path("M 0,0 V 15 H 15 A 15,15 0 0 1 0,0 Z");
+}
+
+.compteurs .blur.left:after {
+  bottom: 17.2rem;
+  left: 100%;
+  clip-path: path("M 0,15 V 0 H 15 A 15,15 0 0 0 0,15 Z");
+}
+
+.big-screen .compteurs .blur.right:before {
+  clip-path: path("M 39,0 V 39 H 0 A 39,39 0 0 0 39,0 Z");
+}
+
+.big-screen .compteurs .blur.right:after {
+  clip-path: path("M 39,39 V 0 H 0 a 39,39 0 0 1 39,39 z");
+}
+
+.big-screen .compteurs .blur.left:before {
+  clip-path: path("M 0,0 V 39 H 39 A 39,39 0 0 1 0,0 Z");
+}
+
+.big-screen .compteurs .blur.left:after {
+  clip-path: path("M 0,39 V 0 H 39 A 39,39 0 0 0 0,39 Z");
+}
+
+.compteurs .leaderboard-title {
+  font-family: DentonLight-FNT, serif;
+  font-size: 3.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 66rem;
+  height: 25rem;
+  text-align: center;
+  top: 26rem;
+  left: calc(50% + 85.5rem);
+  letter-spacing: 3.1rem;
+  text-transform: uppercase;
+  padding-left: 3.1rem;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.compteurs .leaderboard {
+  z-index: 3;
+}
+
+.compteurs .compteur .label {
+  display: none;
+}
+
+.compteurs #vitesse {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 1rem);
+  transform: translate(-50%, -50%);
+  font-size: 50rem;
+  font-family: 'FranklinGothicDmCpIt-FNT', sans-serif;
+  text-transform: uppercase;
+  clip-path: inset(10% -5% 15% -5%);
+  line-height: 1;
+  z-index: 3;
+}
+
+.compteurs #temps-course {
+  font-family: FranklinGothicDmCpIt-FNT, sans-serif;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: calc(50% + 85.5rem);
+  top: 26rem;
+  font-size: 20rem;
+  height: 25rem;
+  width: 66rem;
+  letter-spacing: -.7rem;
+  z-index: 3;
+}
+
+.compteurs #distance {
+  position: absolute;
+  left: 50%;
+  bottom: calc(50% - 37rem);
+  transform: translate(-50%, -50%);
+  font-size: 9.5rem;
+  text-transform: uppercase;
+  font-family: FranklinGothicDmCpIt-FNT, sans-serif;
+  z-index: 3;
+}
+
+#countdown-running {
+  position: absolute;
+  color: white;
+  font-size: 13.6rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: FranklinGothicDmCpIt-FNT, sans-serif;
+  bottom: 23rem;
+  left: 50%;
+  transform: translateX(-50%);
+  letter-spacing: -.15rem;
+
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
+
+.compteurs .logo-f50 {
+  position: absolute;
+  bottom: 26.5rem;
+  right: calc(50% - 151.5rem);
+  width: 66rem;
+  height: 25rem;
+  padding: 2rem;
+  box-sizing: border-box;
+  object-fit: contain;
+  z-index: 10;
+}
+
+.compteurs .logo-decathlon {
+  position: absolute;
+  bottom: 26.5rem;
+  left: calc(50% - 151.5rem);
+  width: 66rem;
+  height: 25rem;
+  padding: 4rem;
+  box-sizing: border-box;
+  object-fit: contain;
+  z-index: 10;
+}
+
+.compteurs .engineered {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + 44rem);
+  font-size: 3.5rem;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  font-family: DentonLight-FNT, serif;
+  text-transform: uppercase;
+  letter-spacing: 3rem;
+}
+
+.compteurs .leaderboard {
+  position: absolute;
+  top: 55rem;
+  right: calc(50% - 151rem);
+  display: flex;
+  flex-direction: column;
+  width: 66rem;
+  padding-top: 4.3rem;
+  padding-left: 5.7rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+  font-size: 4.6rem;
+}
+
+.compteurs .leaderboard .row {
+  display: flex;
+  flex-direction: row;
+  font-family: FranklinGothicDmCpIt-FNT, sans-serif;
+  text-transform: uppercase;
+  line-height: 1.11;
+}
+
+.compteurs .leaderboard .row .value {
+  margin-left: auto;
+  font-family: DentonLight-FNT, serif;
+}
+
+#results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
+
+#results .session-stats {
+  box-shadow: inset 0 0 1rem .5rem rgba(255, 255, 255, .2), 4rem 4rem 5rem rgba(0, 0, 0, .2);
+  backdrop-filter: blur(0);
+  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, .6), transparent), url("../assets/results-grid.svg");
+  border: 0 solid white;
+  border-top-width: .3rem;
+  border-left-width: .3rem;
+  box-sizing: border-box;
+  width: 118rem;
+  height: 118rem;
+  border-radius: 4rem;
+  color: white;
+  padding: 6.5rem 5rem;
+}
+
+#results.show .session-stats {
+  backdrop-filter: blur(3rem);
+  transition: backdrop-filter .3s .3s ease-in-out;
+}
+
+#position-text {
+  height: 32rem;
+  font-size: 10rem;
+  font-family: FranklinGothicDmCpIt-FNT, sans-serif;
+  text-transform: uppercase;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  box-sizing: border-box;
+  line-height: 1.15;
+}
+
+#results .stats-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5rem;
+}
+
+#results .stats-container .stat {
+  display: flex;
+  flex-direction: row;
+  height: 18rem;
+  line-height: .9;
+}
+
+#results .stats-container .stat .label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 40rem;
+  font-family: FranklinGothicDmCpIt-FNT, sans-serif;
+  text-transform: uppercase;
+  padding-left: 4rem;
+  font-size: 9rem;
+  box-sizing: border-box;
+}
+
+#results .stats-container .stat .value {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  text-align: right;
+  margin-left: auto;
+  font-family: DentonLight-FNT, serif;
+  font-size: 11rem;
+  padding-right: 9rem;
+}
+
+#leaderboard {
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
+
+#leaderboard .leaderboard-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 160rem;
+  z-index: 5;
+}
+
+#leaderboard .leaderboard-header {
+  position: absolute;
+  top: 37rem;
+  left: calc(50% - 66.66rem);
+  transform: translateX(-50%);
+  color: white;
+  font-family: DentonLight-FNT, serif;
+  font-size: 10rem;
+  text-transform: uppercase;
+  height: 25rem;
+  width: 112rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 3rem;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+#leaderboard #mini-leaderboard-table {
+  position: absolute;
+  top: 62rem;
+  left: calc(50% - 5.7rem);
+  height: 104rem;
+  width: 234rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  transform: translateX(-50%);
+}
+
+#leaderboard #mini-leaderboard-table .leaderboard-row {
+  width: 100%;
+  height: calc(104rem / 6);
+  display: flex;
+  flex-direction: row;
+}
+
+#mini-leaderboard-table .leaderboard-cell.position {
+  font-family: FranklinGothicDmCpIt-FNT, sans-serif;
+  font-size: 12rem;
+  display: flex;
+  align-items: center;
+  width: 82rem;
+  padding-left: 4rem;
+  box-sizing: border-box;
+}
+
+#mini-leaderboard-table .leaderboard-cell.value {
+  font-family: DentonLight-FNT, serif;
+  font-size: 9rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-grow: 1;
+  padding-right: 4rem;
+}
+
+#mini-leaderboard-table .current-session {
+  background-color: rgba(0, 128, 255, .1);
+}
+
+#leaderboard .blur.top {
+  z-index: 1;
+  position: absolute;
+  left: calc(50% - 66.666rem);
+  transform: translateX(-50%);
+  top: 31.5rem;
+  height: 25rem;
+  width: 121.5rem;
+  border-radius: 4rem 4rem 0 0;
+}
+
+#leaderboard .blur.middle {
+  z-index: 1;
+  position: absolute;
+  left: calc(50% - 6rem);
+  transform: translateX(-50%);
+  top: 56.5rem;
+  height: 114rem;
+  width: 243rem;
+  border-radius: 0 4rem 4rem 4rem;
+}
+
+#leaderboard .blur.top:after {
+  content: '';
+  position: absolute;
+  height: 4rem;
+  width: 4rem;
+  background-color: inherit;
+  backdrop-filter: blur(2rem);
+  bottom: 0;
+  left: 100%;
+  clip-path: path("M 0,0 V 15 H 15 A 15,15 0 0 1 0,0 Z");
+}
+
+.big-screen #leaderboard .blur.top:after {
+  clip-path: path("M 0,0 V 39 H 39 A 39,39 0 0 1 0,0 Z");
+}
+
+.bottom-logo-decathlon {
+  position: absolute;
+  bottom: 15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 15rem;
+}

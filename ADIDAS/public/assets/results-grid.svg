@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg version="1.1"
+     viewBox="0 0 437 437"
+     xmlns="http://www.w3.org/2000/svg" fill="white">
+    <g opacity=".7">
+        <path d="m37 408v2h-2v1h2v2h1v-2h2v-1h-2v-2z"/>
+        <path d="m17 22v2h-2v1h2v2h1v-2h2v-1h-2v-2h-1z"/>
+        <path d="m419 22v2h-2v1h2v2h1v-2h2v-1h-2v-2z"/>
+        <path d="m419 408v2h-2v1h2v2h1v-2h2v-1h-2v-2z"/>
+    </g>
+    <g opacity=".5">
+        <rect x="41" y="410" width="375" height="1"/>
+        <rect x="17" y="28" width="1" height="383"/>
+        <rect x="18" y="410" width="16" height="1"/>
+        <rect x="37" y="142" width="1" height="265"/>
+        <rect x="38" y="142" width="381" height="1"/>
+        <rect x="419" y="28" width="1" height="379"/>
+        <rect x="21" y="24" width="395" height="1"/>
+        <rect x="186" y="142" width="1" height="268"/>
+        <rect x="18" y="343" width="401" height="1"/>
+        <rect x="18" y="209" width="401" height="1"/>
+        <rect x="38" y="276" width="381" height="1"/>
+    </g>
+</svg>

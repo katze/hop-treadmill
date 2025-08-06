@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand écran</title>
+    <!--  <link rel="stylesheet" href="styles.css">-->
+    <link rel="stylesheet" href="./css/little_screen.css">
+</head>
+<body class="big-screen">
+    <div id="accueil" class="view">
+        <video autoplay muted loop playsinline src="assets/idle-video.mp4" id="background-video"></video>
+        <div class="message">Prêt ?</div>
+    </div>
+    <div id="running" class="view">
+        <div class="welcome" id="welcome-msg">
+            <div class="message">
+                Prêt<span class="question-mark">&nbsp;?</span>
+            </div>
+        </div>
+        <div class="compteurs">
+            <img src="./assets/background-running.png" class="image-shape">
+            <div class="blur left"></div>
+            <div class="blur middle"></div>
+            <div class="blur right"></div>
+            <div class="engineered">Engineered for speed</div>
+            <div class="leaderboard-title">Leaderboard</div>
+            <div class="leaderboard">
+                <div class="row">
+                    <div class="rank">1st</div>
+                    <div class="value">35,7km/h</div>
+                </div>
+                <div class="row">
+                    <div class="rank">2nd</div>
+                    <div class="value">35,7km/h</div>
+                </div>
+                <div class="row">
+                    <div class="rank">3rd</div>
+                    <div class="value">35,7km/h</div>
+                </div>
+            </div>
+            <div class="compteur speed" id="vitesse">0 km/h</div>
+            <div class="compteur distance" id="distance">0,0 m</div>
+            <div class="compteur time" id="temps-course">00.00.00</div>
+            <div id="countdown-running"></div>
+            <img src="./assets/LOGO%20ADIxDECATH.svg" class="logo-decathlon">
+            <img src="./assets/LOGO%20F50.svg" class="logo-f50">
+        </div>
+    </div>
+    <div id="results" class="view">
+        <div class="session-stats">
+            <div class="position-text" id="position-text">
+                Félicitations,<br />
+                Vous êtes à la -- place&nbsp;!
+            </div>
+            <div class="stats-container">
+                <div class="stat">
+                    <div class="label">Durée</div>
+                    <div class="value" id="results-duree">00.00.00</div>
+                </div>
+                <div class="stat">
+                    <div class="label">Distance</div>
+                    <div class="value" id="results-distance">0,0 m</div>
+                </div>
+                <div class="stat">
+                    <div class="label">Vitesse moyenne</div>
+                    <div class="value" id="results-vitesse-moy">0,0 km/h</div>
+                </div>
+                <div class="stat">
+                    <div class="label">Vitesse max</div>
+                    <div class="value" id="results-vitesse-max">0,0 km/h</div>
+                </div>
+            </div>
+        </div>
+        <img src="./assets/LOGO%20ADIxDECATH.svg" class="bottom-logo-decathlon">
+    </div>
+    <div id="leaderboard" class="view">
+        <img src="./assets/background-leaderboard.png" class="leaderboard-background">
+        <div class="blur top"></div>
+        <div class="blur middle"></div>
+        <div class="leaderboard-header">Classement</div>
+        <div class="mini-leaderboard" id="mini-leaderboard-table"></div>
+        <img src="./assets/LOGO%20ADIxDECATH.svg" class="bottom-logo-decathlon">
+    </div>
+    <script src="./size_fix.js"></script>
+    <script src="./renderer_grand_ecran.js"></script>
+</body>
+</html> 

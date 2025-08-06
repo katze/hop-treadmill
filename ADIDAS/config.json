@@ -1,0 +1,12 @@
+{
+  "messageDuration": 3,
+  "vMin": 2,
+  "coefficient": 1.2,
+  "frequency": 250,
+  "maxDuration": 30,
+  "countdownDuration": 5,
+  "pauseDurationBeforeEnd": 1,
+  "scoreDisplayDuration": 10000,
+  "resultsDisplayDuration": 10,
+  "rankingCriteria": "distance"
+}
