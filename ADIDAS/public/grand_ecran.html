@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="./css/little_screen.css">
 </head>
 <body class="big-screen">
+    <template id="template-leaderboard-row">
+        <div class="row">
+            <div class="rank">??</div>
+            <div class="value">??</div>
+        </div>
+    </template>
     <div id="accueil" class="view">
         <video autoplay muted loop playsinline src="assets/idle-video.mp4" id="background-video"></video>
         <div class="message">Prêt ?</div>
@@ -28,16 +34,16 @@
             <div class="leaderboard-title">Leaderboard</div>
             <div class="leaderboard">
                 <div class="row">
-                    <div class="rank">1st</div>
-                    <div class="value">35,7km/h</div>
+                    <div class="rank"></div>
+                    <div class="value"></div>
                 </div>
                 <div class="row">
-                    <div class="rank">2nd</div>
-                    <div class="value">35,7km/h</div>
+                    <div class="rank"></div>
+                    <div class="value"></div>
                 </div>
                 <div class="row">
-                    <div class="rank">3rd</div>
-                    <div class="value">35,7km/h</div>
+                    <div class="rank"></div>
+                    <div class="value"></div>
                 </div>
             </div>
             <div class="compteur speed" id="vitesse">0 km/h</div>

@@ -2,6 +2,7 @@
 // Affichage synchronisé pour la fenêtre Grand écran (lecture seule)
 
 const bc = new BroadcastChannel('tapis-display');
+const RANK_TEXT = ['1ST', '2ND', '3RD'];
 
 let state = 'idle';
 let session = null;
@@ -120,6 +121,49 @@ bc.onmessage = (event) => {
   showCompteurs = data.showCompteurs;
 
   // Large screen is now a simple follower - no special rating state handling
+
+  if (prevState !== state && state === 'running') {
+    window.api.getCsvData().then(
+      /** @param {{distance: number, vMax: number, vMoy: number}[]} rows */
+      (rows) => {
+        /** @type {HTMLTemplateElement} */
+        const leaderboardRowTemplate = document.getElementById('template-leaderboard-row');
+        const leaderboardRowsElements = rows.map((row) => {
+          switch (config.rankingCriteria) {
+            case 'vitesseMax':
+              return row.vMax;
+            case 'distance':
+              return row.distance;
+            case 'vitesseMoyenne':
+            default:
+              return row.vMoy;
+          }
+        }).toSorted((a, b) => b - a)
+          .slice(0, 3)
+          .map((row, idx) => {
+            /** @type {HTMLElement} */
+            const leaderboardRow = leaderboardRowTemplate.content.cloneNode(true);
+            leaderboardRow.querySelector('.rank').textContent = RANK_TEXT[idx];
+            let value = row.toFixed(1);
+            switch (config.rankingCriteria) {
+              case 'vitesseMax':
+              case 'vitesseMoyenne':
+                value = row.toFixed(1).replace('.', ',') + ' km/h';
+                break;
+              case 'distance':
+                value = row.toFixed(1).replace('.', ',') + ' m';
+                break;
+            }
+            leaderboardRow.querySelector('.value').textContent = value;
+            return leaderboardRow;
+          });
+        const leaderboardContainer = document.querySelector('.compteurs .leaderboard');
+        for (let i = leaderboardContainer.childElementCount - 1; i >= 0; i--) {
+          leaderboardContainer.children.item(i).remove();
+        }
+        leaderboardContainer.append(...leaderboardRowsElements);
+      });
+  }
 
   if (prevState !== state && state === 'idle') {
     backgroundVideoEl.currentTime = 0;

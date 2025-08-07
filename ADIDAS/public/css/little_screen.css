@@ -557,10 +557,10 @@ body {
   position: absolute;
   left: calc(50% - 66.666rem);
   transform: translateX(-50%);
-  top: 31.5rem;
-  height: 25rem;
+  top: 31.6rem;
+  height: 24.9rem;
   width: 121.5rem;
-  border-radius: 4rem 4rem 0 0;
+  border-radius: 4.3rem 4.3rem 0 0;
 }
 
 #leaderboard .blur.middle {
@@ -569,9 +569,9 @@ body {
   left: calc(50% - 6rem);
   transform: translateX(-50%);
   top: 56.5rem;
-  height: 114rem;
-  width: 243rem;
-  border-radius: 0 4rem 4rem 4rem;
+  height: 113.7rem;
+  width: 242.8rem;
+  border-radius: 0 4.3rem 4.3rem 4.3rem;
 }
 
 #leaderboard .blur.top:after {
@@ -581,7 +581,7 @@ body {
   width: 4rem;
   background-color: inherit;
   backdrop-filter: blur(2rem);
-  bottom: 0;
+  bottom: -1px;
   left: 100%;
   clip-path: path("M 0,0 V 15 H 15 A 15,15 0 0 1 0,0 Z");
 }
