@@ -1,15 +1,15 @@
 #include <Arduino.h>
 
-const int sensorPin = 16; // Pin du capteur
+const int sensorPin = 35; // Pin du capteur
 const int ledPin = 15;     // LED interne
-const float distancePerPulse = 0.25; // Distance en mètres par impulsion
+const float distancePerPulse = 0.186; // Distance en mètres par impulsion
 unsigned long frameInterval = 500;   // Intervalle d'envoi en ms (modifiable avec la commande SET_INTERVAL)
 
 volatile unsigned int pulsesSinceLastFrame = 0;
 
 void setup() {
   Serial.begin(115200);
-  pinMode(sensorPin, INPUT_PULLUP);
+  pinMode(sensorPin, INPUT);
   pinMode(ledPin, OUTPUT);
 }
 
@@ -38,7 +38,7 @@ void loop() {
   // --- Détection du pulse avec anti-rebond logiciel ---
   unsigned long now = millis();
   bool currentState = digitalRead(sensorPin);
-  if (previousState == true && currentState == false && (now - lastPulse > 100)) {
+  if (previousState == true && currentState == false && (now - lastPulse > 10)) {
     pulsesSinceLastFrame++;
     digitalWrite(ledPin, HIGH);
     lastPulse = now;
